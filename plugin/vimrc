@@ -1,0 +1,78 @@
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'kien/ctrlp.vim'
+Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
+call plug#end()
+
+" netrw alternate vsplit
+let g:netrw_altv = 1
+" netrw hide some files
+let g:netrw_list_hide= '.*\.sw(p|o)$,\..+'
+
+" Persistent, cross-session undos
+set undofile
+set undodir=~/.vim/undo
+
+colorscheme darkburn
+set relativenumber " Set both number and relative number: http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
+set number " Default to line numbers on
+
+" Set vim to recognize .md as markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" Highlight columns > 80
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="80,".join(range(120,999),",")
+
+" Set fmt to use goimports instead
+let g:go_fmt_command = "goimports"
+
+" Key bindings
+let mapleader = ","
+nnoremap <leader>e :Explore<cr>
+
+" Vim-Go bindings
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <Leader>gi <Plug>(go-implements)
+au FileType go nmap <Leader>gr <Plug>(go-rename)
+
+" YankStack override of default bindings
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
+let g:yankstack_map_keys = 0
+
+" Useful leader mappings
+" See http://karmanebula.com/technically-borked/2013/12/16/leader-key-as-space-capslock-as-esc
+nnoremap <leader>l 6<C-w>>
+nnoremap <leader>h 6<C-w><
+nnoremap <leader>= <C-w>=
+nnoremap <leader>, <C-w><C-w>
+nnoremap <leader>n :tabnew<CR>
+nnoremap <leader>c :tabclose<CR>
+
+" toggle hex mode
+" http://www.kevssite.com/2009/04/21/using-vi-as-a-hex-editor/
+nnoremap <leader>h :%!xxd<CR>
+nnoremap <leader>H :%!xxd -r<CR>
+
+" Pretty-print json, uglify json
+nnoremap <leader>j :%!jq .<CR>
+nnoremap <leader>J :%!jq . -c<CR>
+
+"Status bar,
+"http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html
+set statusline=%t       "tail of the filename
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+set laststatus=2        " status always visible
