@@ -18,6 +18,9 @@ let g:netrw_list_hide= '.*\.sw(p|o)$,\..+'
 set undofile
 set undodir=~/.vim/undo
 
+" Tabs : http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 colorscheme darkburn
 set relativenumber " Set both number and relative number: http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
 set number " Default to line numbers on
