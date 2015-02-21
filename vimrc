@@ -5,6 +5,7 @@ Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
+Plug 'jszakmeister/vim-togglecursor'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 call plug#end()
