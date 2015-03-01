@@ -6,6 +6,7 @@ Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
 Plug 'jszakmeister/vim-togglecursor'
+Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 call plug#end()
@@ -71,6 +72,7 @@ nnoremap <leader>J :%!jq . -c<CR>
 "Status bar,
 "http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html
 set statusline=%t       "tail of the filename
+set statusline+=%{fugitive#statusline()}
 set statusline+=%h      "help file flag
 set statusline+=%m      "modified flag
 set statusline+=%r      "read only flag
@@ -80,3 +82,5 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2        " status always visible
+" use powerline symbols
+let g:airline_powerline_fonts = 1
