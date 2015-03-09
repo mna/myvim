@@ -60,6 +60,9 @@ nnoremap <leader>, <C-w><C-w>
 nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>c :tabclose<CR>
 
+" CtrlP triggers MRU by default
+let g:ctrlp_cmd = 'CtrlPMRU'
+
 " toggle hex mode
 " http://www.kevssite.com/2009/04/21/using-vi-as-a-hex-editor/
 nnoremap <leader>h :%!xxd<CR>
