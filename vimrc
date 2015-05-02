@@ -9,6 +9,7 @@ Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'rhysd/vim-crystal', {'for': 'crystal'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 call plug#end()
 
