@@ -57,8 +57,10 @@ let g:yankstack_map_keys = 0
 
 " Useful leader mappings
 " See http://karmanebula.com/technically-borked/2013/12/16/leader-key-as-space-capslock-as-esc
-nnoremap <leader>l 6<C-w>>
-nnoremap <leader>h 6<C-w><
+noremap <up> <C-w>+
+noremap <down> <C-w>-
+noremap <left> 3<C-w><
+noremap <right> 3<C-w>>
 nnoremap <leader>= <C-w>=
 nnoremap <leader>, <C-w><C-w>
 nnoremap <leader>n :tabnew<CR>
