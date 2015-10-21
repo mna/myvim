@@ -6,15 +6,12 @@ Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
 Plug 'jszakmeister/vim-togglecursor'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
-Plug '~/src/github.com/privat/nit/misc/vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'rhysd/vim-crystal', {'for': 'crystal'}
 Plug 'PuerkitoBio/nimrod.vim', {'for': 'nim'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 Plug 'fasterthanlime/ooc.vim', {'for': ['ooc', 'use']}
-Plug 'lambdatoast/elm.vim', {'for': 'elm'}
 call plug#end()
 
 " netrw alternate vsplit
