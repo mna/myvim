@@ -7,6 +7,7 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'rhysd/vim-crystal', {'for': 'crystal'}
 Plug 'PuerkitoBio/nimrod.vim', {'for': 'nim'}
