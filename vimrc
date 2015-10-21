@@ -41,6 +41,9 @@ let &colorcolumn="80,".join(range(120,999),",")
 " Set fmt to use goimports instead
 let g:go_fmt_command = "goimports"
 
+" Set eslint as javascript checker
+let g:syntastic_javascript_checkers = ["eslint"]
+
 " Key bindings
 let mapleader = ","
 nnoremap <leader>e :Explore<cr>
