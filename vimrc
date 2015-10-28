@@ -38,7 +38,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")
 
-" Set fmt to use goimports instead
+" Set Go fmt tool
 let g:go_fmt_command = "goimports"
 
 " Set eslint as javascript checker
