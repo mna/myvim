@@ -45,6 +45,9 @@ let g:go_fmt_command = "goimports"
 " Set eslint as javascript checker
 let g:syntastic_javascript_checkers = ["eslint"]
 
+" use tidy for html5
+let g:syntastic_html_tidy_exec = 'tidy5'
+
 " Key bindings
 let mapleader = ","
 nnoremap <leader>e :Explore<cr>
