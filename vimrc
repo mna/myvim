@@ -8,12 +8,12 @@ Plug 'kien/ctrlp.vim'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'rhysd/vim-crystal', {'for': 'crystal'}
 Plug 'PuerkitoBio/nimrod.vim', {'for': 'nim'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 Plug 'fasterthanlime/ooc.vim', {'for': ['ooc', 'use']}
-Plug 'mustache/vim-mustache-handlebars', {'for': 'html'}
 call plug#end()
 
 " netrw alternate vsplit
