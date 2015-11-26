@@ -8,6 +8,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
+Plug 'rking/ag.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'rhysd/vim-crystal', {'for': 'crystal'}
@@ -34,6 +35,10 @@ set number " Default to line numbers on
 
 " Set vim to recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" Set ag to search from project root instead of cwd
+" https://github.com/rking/ag.vim
+let g:ag_working_path_mode="r"
 
 " Highlight columns > 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
