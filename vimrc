@@ -11,10 +11,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'rhysd/vim-crystal', {'for': 'crystal'}
-Plug 'PuerkitoBio/nimrod.vim', {'for': 'nim'}
+Plug 'garyburd/go-explorer', {'for': 'go'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
-Plug 'fasterthanlime/ooc.vim', {'for': ['ooc', 'use']}
+Plug 'nicklasos/vim-jsx-riot', {'for': 'tag'}
 call plug#end()
 
 " netrw alternate vsplit
@@ -58,6 +57,7 @@ nnoremap <leader>e :Explore<cr>
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>gi <Plug>(go-implements)
 au FileType go nmap <Leader>gr <Plug>(go-rename)
+au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
 
 " YankStack override of default bindings
 nmap <leader>p <Plug>yankstack_substitute_older_paste
