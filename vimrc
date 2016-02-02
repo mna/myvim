@@ -12,6 +12,7 @@ Plug 'rking/ag.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'garyburd/go-explorer', {'for': 'go'}
+Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 Plug 'nicklasos/vim-jsx-riot', {'for': 'tag'}
 call plug#end()
@@ -19,7 +20,7 @@ call plug#end()
 " netrw alternate vsplit
 let g:netrw_altv = 1
 " netrw hide some files
-let g:netrw_list_hide= '.*\.sw(p|o)$,\..+'
+let g:netrw_list_hide= '.*\.sw.$,\..+'
 
 " Persistent, cross-session undos
 set undofile
@@ -43,16 +44,23 @@ let g:ag_working_path_mode="r"
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")
 
-" Set Go fmt tool
+" Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-" Set eslint as javascript checker
+" Set syntastic settings
 let g:syntastic_javascript_checkers = ["eslint"]
 
 " Key bindings
 let mapleader = ","
 nnoremap <leader>e :Explore<cr>
-
 " Vim-Go bindings
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>gi <Plug>(go-implements)
