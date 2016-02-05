@@ -13,6 +13,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'garyburd/go-explorer', {'for': 'go'}
 Plug 'posva/vim-vue', {'for': 'vue'}
+Plug 'tpope/vim-haml', {'for': 'sass'}
+Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 Plug 'nicklasos/vim-jsx-riot', {'for': 'tag'}
 call plug#end()
