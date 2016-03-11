@@ -1,28 +1,25 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'kien/ctrlp.vim'
-Plug 'jszakmeister/vim-togglecursor'
-Plug 'tpope/vim-vinegar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'garyburd/go-explorer', {'for': 'go'}
-Plug 'posva/vim-vue', {'for': 'vue'}
-Plug 'tpope/vim-haml', {'for': 'sass'}
 Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
-Plug 'nicklasos/vim-jsx-riot', {'for': 'tag'}
 call plug#end()
 
+" toggle cursor appearance, see
+" https://github.com/neovim/neovim/wiki/FAQ#how-can-i-change-the-cursor-shape-in-the-terminal
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 " netrw alternate vsplit
-let g:netrw_altv = 1
+" let g:netrw_altv = 1
 " netrw hide some files
-let g:netrw_list_hide= '.*\.sw.$,\..+'
+" let g:netrw_list_hide= '.*\.sw.$,\..+'
 
 " Persistent, cross-session undos
 set undofile
@@ -32,11 +29,17 @@ set undodir=~/.vim/undo
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 colorscheme darkburn
-set relativenumber " Set both number and relative number: http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
-set number " Default to line numbers on
+
+" Set both number and relative number: 
+" http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
+set relativenumber
+set number
 
 " Set vim to recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" run neomake on save
+autocmd! BufWritePost * Neomake
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
@@ -54,15 +57,11 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-" Set syntastic settings
-let g:syntastic_javascript_checkers = ["eslint"]
 
 " Key bindings
 let mapleader = ","
 nnoremap <leader>e :Explore<cr>
+
 " Vim-Go bindings
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>gi <Plug>(go-implements)
@@ -110,5 +109,7 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2        " status always visible
+
 " use powerline symbols
 let g:airline_powerline_fonts = 1
+
