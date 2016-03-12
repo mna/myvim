@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-vinegar'
 Plug 'flazz/vim-colorschemes'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
@@ -30,7 +31,7 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 colorscheme darkburn
 
-" Set both number and relative number: 
+" Set both number and relative number:
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
 set relativenumber
 set number
@@ -40,6 +41,19 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " run neomake on save
 autocmd! BufWritePost * Neomake
+" fix neomake to run go build on package instead of current file
+" https://github.com/benekastah/neomake/issues/134
+let g:neomake_go_gobuild_maker = {
+    \ 'exe': 'sh',
+    \ 'args': ['-c', 'go build -o ' . neomake#utils#DevNull() . ' ./\$0', '%:h'],
+    \ 'errorformat':
+        \ '%W%f:%l: warning: %m,' .
+        \ '%E%f:%l:%c:%m,' .
+        \ '%E%f:%l:%m,' .
+        \ '%C%\s%\+%m,' .
+        \ '%-G#%.%#'
+    \ }
+let g:neomake_open_list = 2
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
