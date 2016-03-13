@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'flazz/vim-colorschemes'
+Plug 'robertmeta/nofrils'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -29,7 +30,8 @@ set undodir=~/.vim/undo
 " Tabs : http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-colorscheme darkburn
+colorscheme nofrils-dark
+let g:nofrils_strbackgrounds = 1
 
 " Set both number and relative number:
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
@@ -60,17 +62,11 @@ let g:neomake_open_list = 2
 let g:ag_working_path_mode="r"
 
 " Highlight columns > 80
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="80,".join(range(120,999),",")
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" let &colorcolumn="80,".join(range(120,999),",")
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 " Key bindings
 let mapleader = ","
