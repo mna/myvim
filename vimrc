@@ -2,7 +2,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'flazz/vim-colorschemes'
-Plug 'robertmeta/nofrils'
+Plug 'PuerkitoBio/nofrils'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -31,7 +31,6 @@ set undodir=~/.vim/undo
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 colorscheme nofrils-dark
-let g:nofrils_strbackgrounds = 1
 
 " Set both number and relative number:
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
@@ -43,18 +42,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " run neomake on save
 autocmd! BufWritePost * Neomake
-" fix neomake to run go build on package instead of current file
-" https://github.com/benekastah/neomake/issues/134
-let g:neomake_go_gobuild_maker = {
-    \ 'exe': 'sh',
-    \ 'args': ['-c', 'go build -o ' . neomake#utils#DevNull() . ' ./\$0', '%:h'],
-    \ 'errorformat':
-        \ '%W%f:%l: warning: %m,' .
-        \ '%E%f:%l:%c:%m,' .
-        \ '%E%f:%l:%m,' .
-        \ '%C%\s%\+%m,' .
-        \ '%-G#%.%#'
-    \ }
 let g:neomake_open_list = 2
 
 " Set ag to search from project root instead of cwd
@@ -62,8 +49,8 @@ let g:neomake_open_list = 2
 let g:ag_working_path_mode="r"
 
 " Highlight columns > 80
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
-" let &colorcolumn="80,".join(range(120,999),",")
+hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=235
+let &colorcolumn="80,".join(range(120,999),",")
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
