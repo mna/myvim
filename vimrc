@@ -6,7 +6,8 @@ Plug 'PuerkitoBio/nofrils'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake' " Too buggy with Go :( revisit at later date
+Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
@@ -41,8 +42,16 @@ set number
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " run neomake on save
-autocmd! BufWritePost * Neomake
-let g:neomake_open_list = 2
+" autocmd! BufWritePost * Neomake
+" let g:neomake_open_list = 2
+
+" syntastic
+let g:syntastic_go_checkers = ["go", "golint", "govet"]
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
