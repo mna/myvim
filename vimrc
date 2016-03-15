@@ -49,7 +49,7 @@ let g:neomake_open_list = 2
 let g:ag_working_path_mode="r"
 
 " Highlight columns > 80
-hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=235
+hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=238
 let &colorcolumn="80,".join(range(120,999),",")
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
