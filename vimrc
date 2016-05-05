@@ -13,6 +13,7 @@ Plug 'rking/ag.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
+Plug 'lluchs/vim-wren', {'for': 'wren'}
 call plug#end()
 
 " toggle cursor appearance, see
@@ -46,7 +47,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " let g:neomake_open_list = 2
 
 " syntastic
-let g:syntastic_go_checkers = ["go", "golint", "govet"]
+let g:syntastic_go_checkers = ["go", "govet"] " removed golint, annoying on save
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
