@@ -32,6 +32,9 @@ set undodir=~/.vim/undo
 " Tabs : http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+" try syntax fully off
+syntax off
+let g:syntax_on=1
 colorscheme nofrils-dark
 
 " Set both number and relative number:
@@ -47,12 +50,14 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " let g:neomake_open_list = 2
 
 " syntastic
+let g:syntastic_mode_map = { 'mode': 'passive' } " disable by default, run SyntasticCheck to run
 let g:syntastic_go_checkers = ["go", "govet"] " removed golint, annoying on save
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_javascript_checkers = ["eslint"]
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
@@ -65,43 +70,33 @@ let &colorcolumn="80,".join(range(120,999),",")
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
 
+" CtrlP triggers MRU by default
+let g:ctrlp_cmd = 'CtrlPMRU'
+
 " Key bindings
 let mapleader = ","
 nnoremap <leader>e :Explore<cr>
-
 " Vim-Go bindings
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>gi <Plug>(go-implements)
 au FileType go nmap <Leader>gr <Plug>(go-rename)
 au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
-
 " YankStack override of default bindings
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 let g:yankstack_map_keys = 0
-
 " Useful leader mappings
-" See http://karmanebula.com/technically-borked/2013/12/16/leader-key-as-space-capslock-as-esc
-noremap <up> <C-w>+
-noremap <down> <C-w>-
-noremap <left> 3<C-w><
-noremap <right> 3<C-w>>
-nnoremap <leader>= <C-w>=
-nnoremap <leader>, <C-w><C-w>
 nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>c :tabclose<CR>
-
-" CtrlP triggers MRU by default
-let g:ctrlp_cmd = 'CtrlPMRU'
-
 " toggle hex mode
 " http://www.kevssite.com/2009/04/21/using-vi-as-a-hex-editor/
 nnoremap <leader>h :%!xxd<CR>
 nnoremap <leader>H :%!xxd -r<CR>
-
 " Pretty-print json, uglify json
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
+" run Syntastic
+nnoremap <leader>k :SyntasticCheck
 
 "Status bar,
 "http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html
