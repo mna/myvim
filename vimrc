@@ -10,6 +10,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
+Plug 'yuratomo/w3m.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
@@ -32,9 +33,9 @@ set undodir=~/.vim/undo
 " Tabs : http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-" try syntax fully off
-syntax off
-let g:syntax_on=1
+" to set syntax fully off
+" syntax off
+" let g:syntax_on=1 - because of vim-sensible??
 colorscheme nofrils-dark
 
 " Set both number and relative number:
@@ -64,8 +65,8 @@ let g:syntastic_javascript_checkers = ["eslint"]
 let g:ag_working_path_mode="r"
 
 " Highlight columns > 80
-hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=238
-let &colorcolumn="80,".join(range(120,999),",")
+" hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=238
+" let &colorcolumn="80,".join(range(120,999),",")
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
@@ -96,7 +97,10 @@ nnoremap <leader>H :%!xxd -r<CR>
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
 " run Syntastic
-nnoremap <leader>k :SyntasticCheck
+nnoremap <leader>k :SyntasticCheck<CR>
+" switch color scheme
+nnoremap <leader>sl :colorscheme lucius<CR>
+nnoremap <leader>sd :colorscheme nofrils-dark<CR>
 
 "Status bar,
 "http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html
