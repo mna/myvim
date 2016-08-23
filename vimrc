@@ -2,7 +2,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'flazz/vim-colorschemes'
-Plug 'PuerkitoBio/nofrils'
+" Plug 'PuerkitoBio/nofrils'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -36,7 +36,7 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 " to set syntax fully off
 " syntax off
 " let g:syntax_on=1 - because of vim-sensible??
-colorscheme nofrils-dark
+colorscheme monokai
 
 " Set both number and relative number:
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
@@ -100,7 +100,7 @@ nnoremap <leader>J :%!jq . -c<CR>
 nnoremap <leader>k :SyntasticCheck<CR>
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
-nnoremap <leader>sd :colorscheme nofrils-dark<CR>
+nnoremap <leader>sd :colorscheme monokai<CR>
 
 "Status bar,
 "http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html
