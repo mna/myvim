@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'yuratomo/w3m.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'digitaltoad/vim-jade', {'for': 'jade'}
+Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 Plug 'lluchs/vim-wren', {'for': 'wren'}
 call plug#end()
