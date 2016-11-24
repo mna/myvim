@@ -2,7 +2,6 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'flazz/vim-colorschemes'
-" Plug 'PuerkitoBio/nofrils'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -15,6 +14,7 @@ Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 Plug 'lluchs/vim-wren', {'for': 'wren'}
+Plug 'keith/swift.vim', {'for': 'swift'}
 call plug#end()
 
 " toggle cursor appearance, see
@@ -51,7 +51,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " let g:neomake_open_list = 2
 
 " syntastic
-let g:syntastic_mode_map = { 'mode': 'passive' } " disable by default, run SyntasticCheck to run
+" let g:syntastic_mode_map = { 'mode': 'passive' } " disable by default, run SyntasticCheck to run
 let g:syntastic_go_checkers = ["go", "govet"] " removed golint, annoying on save
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -59,6 +59,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_swift_checkers = ["swiftpm"]
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
