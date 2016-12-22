@@ -10,10 +10,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'yuratomo/w3m.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'digitaltoad/vim-pug', {'for': 'pug'}
-Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
-Plug 'lluchs/vim-wren', {'for': 'wren'}
 Plug 'keith/swift.vim', {'for': 'swift'}
+Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
 call plug#end()
 
 " toggle cursor appearance, see
