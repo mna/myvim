@@ -1,2 +1,2 @@
-set makeprg=swift\ build
+set makeprg=swift\ build\ -Xswiftc\ -warnings-as-errors
 

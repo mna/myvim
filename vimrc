@@ -34,9 +34,6 @@ set number
 " Set vim to recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Open quick list automatically after make
-autocmd QuickFixCmdPost * copen
-
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
 let g:ag_working_path_mode="r"
@@ -70,7 +67,10 @@ nnoremap <leader>H :%!xxd -r<CR>
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
 " run compiler/checker
-nnoremap <leader>k :make<CR>
+nnoremap <leader>k :silent make!\|redraw!\|cc<CR>
+" open/close quick fix window
+nnoremap <leader>c :copen<CR>
+nnoremap <leader>C :cclose<CR>
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
 nnoremap <leader>sd :colorscheme monokai<CR>
