@@ -5,8 +5,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'benekastah/neomake' " Too buggy with Go :( revisit at later date
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'yuratomo/w3m.vim'
@@ -21,21 +20,13 @@ call plug#end()
 " https://github.com/neovim/neovim/wiki/FAQ#how-can-i-change-the-cursor-shape-in-the-terminal
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-" netrw alternate vsplit
-" let g:netrw_altv = 1
-" netrw hide some files
-" let g:netrw_list_hide= '.*\.sw.$,\..+'
-
 " Persistent, cross-session undos
 set undofile
 set undodir=~/.vim/undo
 
 " Tabs : http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" to set syntax fully off
-" syntax off
-" let g:syntax_on=1 - because of vim-sensible??
 colorscheme monokai
 
 " Set both number and relative number:
@@ -46,28 +37,20 @@ set number
 " Set vim to recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" run neomake on save
-" autocmd! BufWritePost * Neomake
-" let g:neomake_open_list = 2
-
-" syntastic
-" let g:syntastic_mode_map = { 'mode': 'passive' } " disable by default, run SyntasticCheck to run
-let g:syntastic_go_checkers = ["go", "govet"] " removed golint, annoying on save
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_swift_checkers = ["swiftpm"]
+" " syntastic
+" " let g:syntastic_mode_map = { 'mode': 'passive' } " disable by default, run SyntasticCheck to run
+" let g:syntastic_go_checkers = ["go", "govet"] " removed golint, annoying on save
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_javascript_checkers = ["eslint"]
+" let g:syntastic_swift_checkers = ["swiftpm"]
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
 let g:ag_working_path_mode="r"
-
-" Highlight columns > 80
-" hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=238
-" let &colorcolumn="80,".join(range(120,999),",")
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
@@ -97,8 +80,8 @@ nnoremap <leader>H :%!xxd -r<CR>
 " Pretty-print json, uglify json
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
-" run Syntastic
-nnoremap <leader>k :SyntasticCheck<CR>
+" " run Syntastic
+" nnoremap <leader>k :SyntasticCheck<CR>
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
 nnoremap <leader>sd :colorscheme monokai<CR>
