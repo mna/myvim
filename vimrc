@@ -5,7 +5,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'bling/vim-airline'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'yuratomo/w3m.vim'
@@ -35,16 +34,8 @@ set number
 " Set vim to recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" " syntastic
-" " let g:syntastic_mode_map = { 'mode': 'passive' } " disable by default, run SyntasticCheck to run
-" let g:syntastic_go_checkers = ["go", "govet"] " removed golint, annoying on save
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_aggregate_errors = 1
-" let g:syntastic_javascript_checkers = ["eslint"]
-" let g:syntastic_swift_checkers = ["swiftpm"]
+" Open quick list automatically after make
+autocmd QuickFixCmdPost * copen
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
@@ -78,8 +69,8 @@ nnoremap <leader>H :%!xxd -r<CR>
 " Pretty-print json, uglify json
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
-" " run Syntastic
-" nnoremap <leader>k :SyntasticCheck<CR>
+" run compiler/checker
+nnoremap <leader>k :make<CR>
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
 nnoremap <leader>sd :colorscheme monokai<CR>
