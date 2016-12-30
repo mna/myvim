@@ -8,6 +8,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'yuratomo/w3m.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
