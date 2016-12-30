@@ -23,7 +23,10 @@ set undofile
 set undodir=~/.vim/undo
 
 " Tabs : http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+" set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
+" editorconfig setup
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 colorscheme monokai
 
