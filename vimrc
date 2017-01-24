@@ -29,7 +29,7 @@ set undodir=~/.vim/undo
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
 
-colorscheme molokai
+colorscheme 256_noir
 
 " Set both number and relative number:
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
@@ -78,7 +78,7 @@ nnoremap <leader>c :copen<CR>
 nnoremap <leader>C :cclose<CR>
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
-nnoremap <leader>sd :colorscheme monolai<CR>
+nnoremap <leader>sd :colorscheme 256_noir<CR>
 
 "Status bar,
 "http://got-ravings.blogspot.ca/2008/08/vim-pr0n-making-statuslines-that-own.html
