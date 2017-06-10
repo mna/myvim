@@ -9,6 +9,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'yuratomo/w3m.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'AndrewRadev/deleft.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}
@@ -29,7 +30,7 @@ set undodir=~/.vim/undo
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
 
-colorscheme 256_noir
+colorscheme default
 
 " Set both number and relative number:
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
