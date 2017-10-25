@@ -71,6 +71,14 @@ let g:gitgutter_sign_removed = '•'
 let g:gitgutter_sign_removed_first_line = '•'
 let g:gitgutter_sign_modified_removed = '•'
 
+" lightline: display relative path to file if not in current dir
+let g:lightline = {
+      \ 'active': {
+      \ 'left': [ [ 'mode', 'paste' ],
+      \           [ 'readonly', 'relativepath', 'modified' ] ]
+      \ }
+      \ }
+
 "
 " Key bindings
 "
