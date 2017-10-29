@@ -13,7 +13,6 @@ Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
 Plug 'zig-lang/zig.vim', {'for': 'zig'}             " Zig-specific
-Plug 'lluchs/vim-wren', {'for': 'wren'}             " Wren-specific
 Plug 'ryanss/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
