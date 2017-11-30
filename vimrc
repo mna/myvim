@@ -54,6 +54,9 @@ let g:ackprg = 'ag --vimgrep'
 " ALE setup - check only on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
 
 " Set ag to search from project root instead of cwd
 " https://github.com/rking/ag.vim
