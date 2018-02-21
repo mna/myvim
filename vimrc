@@ -8,7 +8,7 @@ Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy-find file/buffer names (assumes fzf is installed at this location, e.g. by brew)
+Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names (assumes fzf is installed at this location, e.g. by brew)
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'junegunn/goyo.vim'                            " distraction-free writing
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
