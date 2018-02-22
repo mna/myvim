@@ -31,7 +31,7 @@ set relativenumber
 set number
 
 " color scheme
-colorscheme default
+colorscheme darkburn
 
 " prevent vim from showing -- INSERT -- (already show in status bar)
 set noshowmode
@@ -131,5 +131,5 @@ nnoremap <leader>C :cclose<CR>
 
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
-nnoremap <leader>sd :colorscheme default<CR>
+nnoremap <leader>sd :colorscheme darkburn<CR>
 
