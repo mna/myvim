@@ -2,7 +2,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'                           " sensible vim defaults
 Plug 'justinmk/vim-dirvish'                         " alternative to vim-vinegar, now that it breaks yank
 Plug 'tpope/vim-fugitive'                           " git commands
-Plug 'airblade/vim-gitgutter'                       " git state indicators
+"Plug 'airblade/vim-gitgutter'                       " git state indicators
 Plug 'flazz/vim-colorschemes'                       " colors
 Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
@@ -20,6 +20,10 @@ call plug#end()
 "
 " Vim Configuration
 "
+
+" Modeline enabled
+set modeline
+set modelines=1
 
 " Persistent, cross-session undos
 set undofile
@@ -67,12 +71,12 @@ let g:ag_working_path_mode="r"
 let g:go_fmt_command = "goimports"
 
 " gitgutter: do not configure any key binding
-let g:gitgutter_map_keys = 0
-let g:gitgutter_sign_added = '•'
-let g:gitgutter_sign_modified = '•'
-let g:gitgutter_sign_removed = '•'
-let g:gitgutter_sign_removed_first_line = '•'
-let g:gitgutter_sign_modified_removed = '•'
+" let g:gitgutter_map_keys = 0
+" let g:gitgutter_sign_added = '•'
+" let g:gitgutter_sign_modified = '•'
+" let g:gitgutter_sign_removed = '•'
+" let g:gitgutter_sign_removed_first_line = '•'
+" let g:gitgutter_sign_modified_removed = '•'
 
 " lightline: display relative path to file if not in current dir
 let g:lightline = {
