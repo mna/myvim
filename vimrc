@@ -2,13 +2,13 @@ call plug#begin()
 Plug 'tpope/vim-sensible'                           " sensible vim defaults
 Plug 'justinmk/vim-dirvish'                         " alternative to vim-vinegar, now that it breaks yank
 Plug 'tpope/vim-fugitive'                           " git commands
-"Plug 'airblade/vim-gitgutter'                       " git state indicators
 Plug 'flazz/vim-colorschemes'                       " colors
 Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
-Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names (assumes fzf is installed at this location, e.g. by brew)
+Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
+Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'junegunn/goyo.vim'                            " distraction-free writing
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
