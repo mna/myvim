@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
+Plug 'chrisbra/unicode.vim'                         " unicode characters
 " Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
 Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
@@ -93,6 +94,9 @@ nmap <Leader>; :Files<CR>
 
 " ack/ag bindings
 nmap <Leader>f :Ack<Space>
+
+" unicode bindings
+nmap <Leader>u :UnicodeSearch!<Space>
 
 " Vim-Go bindings
 au FileType go nmap gd <Plug>(go-def)
