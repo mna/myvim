@@ -73,6 +73,9 @@ let g:lightline = {
       \           [ 'readonly', 'relativepath', 'modified' ] ]
       \ }
       \ }
+" lightline+falcon: use falcon colorscheme (falcon
+let g:falcon_lightline = 1
+let g:lightline.colorscheme='falcon'
 
 " dirvish: sort folders together
 let g:dirvish_mode = ':sort ,^.*[\/],'
