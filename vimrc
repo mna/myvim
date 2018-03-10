@@ -73,7 +73,7 @@ let g:lightline = {
       \           [ 'readonly', 'relativepath', 'modified' ] ]
       \ }
       \ }
-" lightline+falcon: use falcon colorscheme (falcon
+" lightline+falcon: use falcon colorscheme
 let g:falcon_lightline = 1
 let g:lightline.colorscheme='falcon'
 
