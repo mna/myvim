@@ -1,19 +1,19 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'                           " sensible vim defaults
-Plug 'justinmk/vim-dirvish'                         " alternative to vim-vinegar, now that it breaks yank
+Plug 'justinmk/vim-dirvish'                         " alternative to vim-vinegar and netrw
 Plug 'tpope/vim-fugitive'                           " git commands
 Plug 'flazz/vim-colorschemes'                       " colors
+Plug 'fenetikm/falcon'                              " more color
 Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
+" Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
 Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'junegunn/goyo.vim'                            " distraction-free writing
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
-Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
-Plug 'zig-lang/zig.vim', {'for': 'zig'}             " Zig-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -35,7 +35,7 @@ set relativenumber
 set number
 
 " color scheme
-colorscheme darkburn
+colorscheme falcon
 
 " prevent vim from showing -- INSERT -- (already show in status bar)
 set noshowmode
@@ -63,20 +63,8 @@ let g:ale_linters = {
 \   'javascript': ['standard'],
 \}
 
-" Set ag to search from project root instead of cwd
-" https://github.com/rking/ag.vim
-let g:ag_working_path_mode="r"
-
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
-
-" gitgutter: do not configure any key binding
-" let g:gitgutter_map_keys = 0
-" let g:gitgutter_sign_added = '•'
-" let g:gitgutter_sign_modified = '•'
-" let g:gitgutter_sign_removed = '•'
-" let g:gitgutter_sign_removed_first_line = '•'
-" let g:gitgutter_sign_modified_removed = '•'
 
 " lightline: display relative path to file if not in current dir
 let g:lightline = {
@@ -127,13 +115,11 @@ nnoremap <leader>H :%!xxd -r<CR>
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
 
-" run compiler/checker
-nnoremap <leader>k :silent make!\|redraw!\|cc<CR>
 " open/close quick fix window
 nnoremap <leader>c :copen<CR>
 nnoremap <leader>C :cclose<CR>
 
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
-nnoremap <leader>sd :colorscheme darkburn<CR>
+nnoremap <leader>sd :colorscheme falcon<CR>
 
