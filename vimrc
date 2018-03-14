@@ -5,6 +5,7 @@ Plug 'tpope/vim-fugitive'                           " git commands
 Plug 'flazz/vim-colorschemes'                       " colors
 Plug 'fenetikm/falcon'                              " more color
 Plug 'itchyny/lightline.vim'                        " status bar
+Plug 'sheerun/vim-polyglot'                         " multi-languages syntax and indent
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
