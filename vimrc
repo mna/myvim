@@ -112,7 +112,6 @@ let g:yankstack_map_keys = 0
 
 " Useful leader mappings
 nnoremap <leader>n :tabnew<CR>
-nnoremap <leader>c :tabclose<CR>
 
 " toggle hex mode
 " http://www.kevssite.com/2009/04/21/using-vi-as-a-hex-editor/
@@ -126,6 +125,10 @@ nnoremap <leader>J :%!jq . -c<CR>
 " open/close quick fix window
 nnoremap <leader>c :copen<CR>
 nnoremap <leader>C :cclose<CR>
+
+" open/close location window
+nnoremap <leader>l :lopen<CR>
+nnoremap <leader>L :lclose<CR>
 
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
