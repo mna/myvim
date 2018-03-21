@@ -45,9 +45,6 @@ set noshowmode
 " refresh rate
 set updatetime=300
 
-" Set vim to recognize .md as markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-
 "
 " Plugin Configuration
 "
@@ -129,6 +126,9 @@ nnoremap <leader>C :cclose<CR>
 " open/close location window
 nnoremap <leader>l :lopen<CR>
 nnoremap <leader>L :lclose<CR>
+
+" close scratch (preview) window
+nnoremap <leader>S :pclose<CR>
 
 " switch color scheme
 nnoremap <leader>sl :colorscheme lucius<CR>
