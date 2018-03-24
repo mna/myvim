@@ -119,6 +119,9 @@ nnoremap <leader>H :%!xxd -r<CR>
 nnoremap <leader>j :%!jq .<CR>
 nnoremap <leader>J :%!jq . -c<CR>
 
+" Pretty-print html
+nnoremap <leader>m :%!tidy -qi --show-errors 0 --show-warnings false<CR>
+
 " open/close quick fix window
 nnoremap <leader>c :copen<CR>
 nnoremap <leader>C :cclose<CR>
