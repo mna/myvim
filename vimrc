@@ -38,6 +38,8 @@ set number
 
 " color scheme
 colorscheme falcon
+" termguicolors required for falcon theme
+set termguicolors
 
 " prevent vim from showing -- INSERT -- (already show in status bar)
 set noshowmode
