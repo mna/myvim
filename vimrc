@@ -16,6 +16,7 @@ Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer nam
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'junegunn/goyo.vim'                            " distraction-free writing
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
+Plug 'zig-lang/zig.vim'                             " Zig-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
