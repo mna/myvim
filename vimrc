@@ -9,6 +9,7 @@ Plug 'sheerun/vim-polyglot'                         " multi-languages syntax and
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
+Plug 'rhysd/vim-clang-format'                       " clang auto-format
 Plug 'chrisbra/unicode.vim'                         " unicode characters
 " Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
@@ -71,6 +72,14 @@ let g:ale_lint_on_enter = 0
 let g:ale_linters = {
 \   'javascript': ['standard'],
 \}
+
+" vim-polyglot settings
+let g:polyglot_disabled = ['go'] " handled by vim-go
+
+" vim-clang-format settings
+let g:clang_format#code_style = "chromium"
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
