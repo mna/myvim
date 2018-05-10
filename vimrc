@@ -74,9 +74,6 @@ let g:ale_linters = {
 \   'cpp': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
 \}
 
-" vim-polyglot settings
-let g:polyglot_disabled = ['go'] " handled by vim-go
-
 " vim-clang-format settings
 let g:clang_format#code_style = "chromium"
 let g:clang_format#detect_style_file = 1
