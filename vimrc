@@ -16,7 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install 
 Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'junegunn/goyo.vim'                            " distraction-free writing
-Plug 'dhruvasagar/vim-table-mode'                   " markdown table mode
+Plug 'junegunn/vim-easy-align'                      " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'zig-lang/zig.vim'                             " Zig-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
@@ -124,6 +124,9 @@ au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 let g:yankstack_map_keys = 0
+
+" EasyAlign bindings, align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Useful leader mappings
 nnoremap <leader>n :tabnew<CR>
