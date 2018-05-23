@@ -16,7 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install 
 Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
 Plug 'junegunn/goyo.vim'                            " distraction-free writing
-Plug 'junegunn/vim-easy-align'                      " vim alignment, supports markdown tables
+Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'zig-lang/zig.vim'                             " Zig-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
