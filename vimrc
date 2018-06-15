@@ -20,6 +20,7 @@ Plug 'hallzy/gravity.vim'                           " Gravity-specific
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'zig-lang/zig.vim'                             " Zig-specific
+Plug 'https://gitlab.com/___mna___/inko.vim.git'    " Inko-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
