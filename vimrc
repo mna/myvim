@@ -21,6 +21,7 @@ Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports ma
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'zig-lang/zig.vim'                             " Zig-specific
 Plug 'https://gitlab.com/inko-lang/inko.vim.git'    " Inko-specific
+Plug 'idanarye/vim-dutyl'                           " D-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
