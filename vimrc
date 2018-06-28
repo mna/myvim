@@ -108,28 +108,28 @@ let mapleader = ","
 nnoremap <leader>e :Dirvish<cr>
 
 " fzf bindings
-nmap ; :Buffers<CR>
-nmap <Leader>; :Files<CR>
+nnoremap ; :Buffers<CR>
+nnoremap <Leader>; :Files<CR>
 
 " ack/ag bindings
-nmap <Leader>f :Ack<Space>
+nnoremap <Leader>f :Ack<Space>
 
 " unicode bindings
-nmap <Leader>u :UnicodeSearch!<Space>
+nnoremap <Leader>u :UnicodeSearch!<Space>
 
 " Vim-Go bindings
-au FileType go nmap gd <Plug>(go-def)
-au FileType go nmap <Leader>gi <Plug>(go-implements)
-au FileType go nmap <Leader>gr <Plug>(go-rename)
-au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
+au FileType go nnoremap gd <Plug>(go-def)
+au FileType go nnoremap <Leader>gi <Plug>(go-implements)
+au FileType go nnoremap <Leader>gr <Plug>(go-rename)
+au FileType go nnoremap <Leader>gd <Plug>(go-doc-vertical)
 
 " YankStack override of default bindings
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
+nnoremap <leader>p <Plug>yankstack_substitute_older_paste
+nnoremap <leader>P <Plug>yankstack_substitute_newer_paste
 let g:yankstack_map_keys = 0
 
 " EasyAlign bindings, align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+au FileType markdown vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Useful leader mappings
 nnoremap <leader>n :tabnew<CR>
