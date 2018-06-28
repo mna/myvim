@@ -107,6 +107,10 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 let mapleader = ","
 nnoremap <leader>e :Dirvish<cr>
 
+" edit and source vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " fzf bindings
 nnoremap ; :Buffers<CR>
 nnoremap <Leader>; :Files<CR>
