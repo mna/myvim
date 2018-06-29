@@ -5,23 +5,17 @@ Plug 'tpope/vim-fugitive'                           " git commands
 Plug 'flazz/vim-colorschemes'                       " colors
 Plug 'fenetikm/falcon'                              " more color
 Plug 'itchyny/lightline.vim'                        " status bar
-Plug 'sheerun/vim-polyglot'                         " multi-languages syntax and indent
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
 Plug 'w0rp/ale'                                     " linters
-Plug 'rhysd/vim-clang-format'                       " clang auto-format
 Plug 'chrisbra/unicode.vim'                         " unicode characters
 " Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
 Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
 Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
-Plug 'junegunn/goyo.vim'                            " distraction-free writing
-Plug 'hallzy/gravity.vim'                           " Gravity-specific
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
-Plug 'zig-lang/zig.vim'                             " Zig-specific
-Plug 'https://gitlab.com/inko-lang/inko.vim.git'    " Inko-specific
-Plug 'idanarye/vim-dutyl'                           " D-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -78,11 +72,6 @@ let g:ale_linters = {
 \   'cpp': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
 \}
 
-" vim-clang-format settings
-let g:clang_format#code_style = "chromium"
-let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format = 1
-
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
 
@@ -137,11 +126,6 @@ au FileType markdown vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Useful leader mappings
 nnoremap <leader>n :tabnew<CR>
-
-" toggle hex mode
-" http://www.kevssite.com/2009/04/21/using-vi-as-a-hex-editor/
-nnoremap <leader>h :%!xxd<CR>
-nnoremap <leader>H :%!xxd -r<CR>
 
 " Pretty-print json, uglify json
 nnoremap <leader>j :%!jq .<CR>
