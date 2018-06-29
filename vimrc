@@ -107,10 +107,15 @@ nnoremap <leader>f :Ack<Space>
 nnoremap <leader>u :UnicodeSearch!<Space>
 
 " Vim-Go bindings
-au FileType go nnoremap gd <Plug>(go-def)
-au FileType go nnoremap <leader>gi <Plug>(go-implements)
-au FileType go nnoremap <leader>gr <Plug>(go-rename)
-au FileType go nnoremap <leader>gd <Plug>(go-doc-vertical)
+augroup gobindings
+  autocmd!
+  autocmd FileType go nmap gd <Plug>(go-def)
+  autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
+  autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+  autocmd FileType go nmap <leader>gd <Plug>(go-doc-split)
+  autocmd FileType go nmap <leader>gi <Plug>(go-info)
+  autocmd FileType go nmap <leader>gt <Plug>(go-test)
+augroup END
 
 " YankStack override of default bindings
 nnoremap <leader>p <Plug>yankstack_substitute_older_paste
