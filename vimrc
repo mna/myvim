@@ -101,7 +101,7 @@ nnoremap ; :Buffers<CR>
 nnoremap <leader>; :Files<CR>
 
 " ack/ag bindings
-nnoremap <leader>f :Ack<Space>
+nnoremap <leader>f :Ack --ignore-dir "vendor/"<Space>
 
 " unicode bindings
 nnoremap <leader>u :UnicodeSearch!<Space>
@@ -115,6 +115,7 @@ augroup gobindings
   autocmd FileType go nmap <leader>gd <Plug>(go-doc-split)
   autocmd FileType go nmap <leader>gi <Plug>(go-info)
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
+  autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
 augroup END
 
 " YankStack override of default bindings
@@ -123,7 +124,10 @@ nnoremap <leader>P <Plug>yankstack_substitute_newer_paste
 let g:yankstack_map_keys = 0
 
 " EasyAlign bindings, align GitHub-flavored Markdown tables
-au FileType markdown vnoremap <leader><Bslash> :EasyAlign*<Bar><Enter>
+augroup markdownbindings
+  autocmd!
+  autocmd FileType markdown vnoremap <leader><Bslash> :EasyAlign*<Bar><Enter>
+augroup END
 
 " Useful leader mappings
 nnoremap <leader>n :tabnew<CR>
