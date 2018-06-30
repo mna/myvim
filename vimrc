@@ -74,6 +74,8 @@ let g:ale_linters = {
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
+let g:go_test_show_name = 1
+let g:go_test_timeout= '30s'
 
 " lightline: display relative path to file if not in current dir
 let g:lightline = {
@@ -109,13 +111,12 @@ nnoremap <leader>u :UnicodeSearch!<Space>
 " Vim-Go bindings
 augroup gobindings
   autocmd!
-  autocmd FileType go nmap gd <Plug>(go-def)
   autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
   autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-  autocmd FileType go nmap <leader>gd <Plug>(go-doc-split)
   autocmd FileType go nmap <leader>gi <Plug>(go-info)
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
+  autocmd FileType go setlocal foldmethod=syntax
 augroup END
 
 " YankStack override of default bindings
