@@ -76,12 +76,20 @@ let g:ale_linters = {
 let g:go_fmt_command = "goimports"
 let g:go_test_show_name = 1
 let g:go_test_timeout= '30s'
+let g:go_fmt_experimental = 1
 
 " lightline: display relative path to file if not in current dir
+function! LightlineRelativePath()
+  return fnamemodify(expand("%"), ":~:.")
+endfunction
 let g:lightline = {
       \ 'active': {
       \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'readonly', 'relativepath', 'modified' ] ]
+      \           [ 'gitbranch', 'readonly', 'relativepath', 'modified', 'gotypeinfo' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'relativepath': 'LightlineRelativePath'
       \ }
       \ }
 " lightline+falcon: use falcon colorscheme
