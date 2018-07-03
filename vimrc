@@ -124,7 +124,10 @@ augroup gobindings
   autocmd FileType go nmap <leader>gi <Plug>(go-info)
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
+  " define folds based on syntax (see vim-go help for fold options)
   autocmd FileType go setlocal foldmethod=syntax
+  " expand all folds by default
+  autocmd FileType go :normal! zR
 augroup END
 
 " YankStack override of default bindings
