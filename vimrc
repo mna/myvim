@@ -128,6 +128,8 @@ augroup gobindings
   autocmd FileType go setlocal foldmethod=syntax
   " expand all folds by default
   autocmd FileType go :normal! zR
+  " set a start fold level, to prevent collapsing blocks on save of a new file
+  autocmd FileType go setlocal foldlevelstart=5
 augroup END
 
 " YankStack override of default bindings
