@@ -116,6 +116,10 @@ nnoremap <leader>f :Ack --ignore-dir "vendor/"<Space>
 " unicode bindings
 nnoremap <leader>u :UnicodeSearch!<Space>
 
+" wrap/nowrap
+nnoremap <leader>w :setlocal wrap<cr>
+nnoremap <leader>W :setlocal nowrap<cr>
+
 " Vim-Go bindings
 augroup gobindings
   autocmd!
