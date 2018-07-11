@@ -12,7 +12,7 @@ Plug 'chrisbra/unicode.vim'                         " unicode characters
 " Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
 Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer names
-" Plug 'editorconfig/editorconfig-vim'                " editor space/tab config
+Plug 'sgur/vim-editorconfig'                	    " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
