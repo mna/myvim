@@ -76,7 +76,7 @@ let g:ale_linters = {
 let g:go_fmt_command = "goimports"
 let g:go_test_show_name = 1
 let g:go_test_timeout= '30s'
-let g:go_fmt_experimental = 1
+"let g:go_fmt_experimental = 1
 
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
@@ -129,11 +129,11 @@ augroup gobindings
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
   " define folds based on syntax (see vim-go help for fold options)
-  autocmd FileType go setlocal foldmethod=syntax
+  "autocmd FileType go setlocal foldmethod=syntax
   " expand all folds by default
-  autocmd FileType go :normal! zR
+  "autocmd FileType go :normal! zR
   " set a start fold level, to prevent collapsing blocks on save of a new file
-  autocmd FileType go setlocal foldlevelstart=5
+  "autocmd FileType go setlocal foldlevelstart=5
 augroup END
 
 " YankStack override of default bindings
