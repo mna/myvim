@@ -146,6 +146,9 @@ augroup markdownbindings
   autocmd FileType markdown vnoremap <leader><Bslash> :EasyAlign*<Bar><Enter>
 augroup END
 
+" automatically set the mail filetype for .mail
+au BufRead,BufNewFile *.mail set filetype=mail
+
 " Useful leader mappings
 nnoremap <leader>n :tabnew<CR>
 
