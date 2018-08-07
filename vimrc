@@ -23,6 +23,9 @@ call plug#end()
 " Vim Configuration
 "
 
+" move viminfo outside the home dir
+set viminfo+=n~/.vim/viminfo
+
 " Modeline enabled
 set modeline
 set modelines=1
