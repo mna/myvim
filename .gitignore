@@ -1,5 +1,7 @@
 .netrwhist
 init.vim
+viminfo
+viminfo.tmp
 plugged/
 nit/
 undo/
