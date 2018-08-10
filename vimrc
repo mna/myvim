@@ -79,7 +79,8 @@ let g:ale_linters = {
 let g:go_fmt_command = "goimports"
 let g:go_test_show_name = 1
 let g:go_test_timeout= '30s'
-"let g:go_fmt_experimental = 1
+" fixes lost folds on save (see https://github.com/fatih/vim-go/issues/502)
+let g:go_fmt_experimental = 1
 
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
