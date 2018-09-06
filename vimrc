@@ -130,7 +130,7 @@ augroup gobindings
   autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
   autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
   autocmd FileType go nmap <leader>gi <Plug>(go-info)
-  autocmd FileType go nmap <leader>gt <Plug>(go-test)
+  autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
   " define folds based on syntax (see vim-go help for fold options)
   "autocmd FileType go setlocal foldmethod=syntax
