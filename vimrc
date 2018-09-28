@@ -16,6 +16,7 @@ Plug 'sgur/vim-editorconfig'                	    " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
+Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -102,6 +103,10 @@ let g:lightline.colorscheme='falcon'
 
 " dirvish: sort folders together
 let g:dirvish_mode = ':sort ,^.*[\/],'
+
+" Zig: use stage 2 compiler for formatting
+let g:zig_fmt_autosave = 1
+let g:zig_fmt_command = ['zig2', 'fmt', '--color', 'off']
 
 "
 " Key bindings
