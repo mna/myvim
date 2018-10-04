@@ -29,7 +29,7 @@ set viminfo+=n~/.vim/viminfo
 
 " Modeline enabled
 set modeline
-set modelines=1
+set modelines=2
 
 " Persistent, cross-session undos
 set undofile
