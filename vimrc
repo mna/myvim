@@ -75,6 +75,9 @@ let g:ale_linters = {
 \   'c': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
 \   'cpp': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
 \}
+let g:ale_fixers = {'javascript': ['standard']}
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
