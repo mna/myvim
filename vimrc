@@ -17,6 +17,7 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
+Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -110,6 +111,9 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 " Zig: use stage 2 compiler for formatting
 let g:zig_fmt_autosave = 1
 let g:zig_fmt_command = ['zig2', 'fmt', '--color', 'off']
+
+" Terraform: fmt on save
+let g:terraform_fmt_on_save = 1
 
 "
 " Key bindings
