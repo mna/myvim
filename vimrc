@@ -87,6 +87,9 @@ let g:go_test_show_name = 1
 let g:go_test_timeout= '30s'
 " fixes lost folds on save (see https://github.com/fatih/vim-go/issues/502)
 let g:go_fmt_experimental = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_metalinter_command='golangci-lint'
 
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
