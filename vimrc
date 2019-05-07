@@ -191,6 +191,6 @@ nnoremap <leader>L :lclose<CR>
 nnoremap <leader>S :pclose<CR>
 
 " switch color scheme
-nnoremap <leader>sl :colorscheme solarized<CR>
+nnoremap <leader>sl :colorscheme lightning<CR>
 nnoremap <leader>sd :colorscheme falcon<CR>
 
