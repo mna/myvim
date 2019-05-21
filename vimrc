@@ -115,7 +115,7 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 
 " Zig: use stage 2 compiler for formatting
 let g:zig_fmt_autosave = 1
-let g:zig_fmt_command = ['zig2', 'fmt', '--color', 'off']
+let g:zig_fmt_command = ['zig', 'fmt', '--color', 'off']
 
 " Terraform: fmt on save
 let g:terraform_fmt_on_save = 1
