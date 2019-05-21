@@ -19,6 +19,7 @@ Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
+Plug 'breuleux/vim-earlgrey', {'for': 'eg'}         " Earl Grey-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
