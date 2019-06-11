@@ -19,7 +19,7 @@ Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
-Plug 'rhysd/vim-crystal', {'for': 'cr'}             " Crystal-specific
+Plug 'rhysd/vim-crystal', {'for': 'crystal'}        " Crystal-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -91,6 +91,9 @@ let g:go_test_timeout= '30s'
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
+
+" vim-crystal settings
+let g:crystal_auto_format = 1
 
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
