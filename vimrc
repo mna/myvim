@@ -43,6 +43,9 @@ set undodir=~/.vim/undo
 set relativenumber
 set number
 
+" disable bell beep
+set belloff=all
+
 " color scheme
 colorscheme falcon
 " termguicolors required for falcon theme
