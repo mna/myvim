@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer nam
 Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
+Plug 'vimwiki/vimwiki'                              " wiki
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
