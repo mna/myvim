@@ -74,6 +74,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " ack.vim setup
 let g:ackprg = 'ag --vimgrep'
 
+" vimwiki config
+let g:vimwiki_list = [{'path': '$XDG_DATA_HOME/wikis/default'}]
+
 " ALE setup - check only on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
