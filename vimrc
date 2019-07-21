@@ -133,6 +133,25 @@ let g:zig_fmt_command = ['zig', 'fmt', '--color', 'off']
 " Terraform: fmt on save
 let g:terraform_fmt_on_save = 1
 
+" Nim: goto definition
+fun! JumpToDef()
+  if exists("*GotoDefinition_" . &filetype)
+    call GotoDefinition_{&filetype}()
+  else
+    exe "norm! \<C-]>"
+  endif
+endf
+
+augroup nimbindings
+  autocmd!
+  autocmd FileType nim nmap gd :call JumpToDef()<cr>
+augroup END
+
+" Jump to tag
+nn <M-g> :call JumpToDef()<cr>
+ino <M-g> <esc>:call JumpToDef()<cr>i
+
+
 "
 " Key bindings
 "
