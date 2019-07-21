@@ -19,6 +19,7 @@ Plug 'vimwiki/vimwiki'                              " wiki
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
 Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
+Plug 'zah/nim.vim', {'for': 'nim'}                  " Nim-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
