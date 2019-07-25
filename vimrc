@@ -16,13 +16,14 @@ Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'vimwiki/vimwiki'                              " wiki
+Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
-Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
-Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'zah/nim.vim', {'for': 'nim'}                  " Nim-specific
+Plug 'fasterthanlime/ooc.vim', {'for': 'ooc'}       " Ooc-specific
+Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
-Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
+Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
