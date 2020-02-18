@@ -16,12 +16,13 @@ Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'vimwiki/vimwiki'                              " wiki
+Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
-Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
+Plug 'zah/nim.vim', {'for': 'nim'}                  " Nim-specific
+Plug 'fasterthanlime/ooc.vim', {'for': 'ooc'}       " Ooc-specific
+Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
-Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
-Plug 'https://gitlab.com/inko-lang/inko.vim', {'for': 'inko'} " Inko-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -131,6 +132,25 @@ let g:zig_fmt_command = ['zig', 'fmt', '--color', 'off']
 
 " Terraform: fmt on save
 let g:terraform_fmt_on_save = 1
+
+" Nim: goto definition
+fun! JumpToDef()
+  if exists("*GotoDefinition_" . &filetype)
+    call GotoDefinition_{&filetype}()
+  else
+    exe "norm! \<C-]>"
+  endif
+endf
+
+augroup nimbindings
+  autocmd!
+  autocmd FileType nim nmap gd :call JumpToDef()<cr>
+augroup END
+
+" Jump to tag
+nn <M-g> :call JumpToDef()<cr>
+ino <M-g> <esc>:call JumpToDef()<cr>i
+
 
 "
 " Key bindings
