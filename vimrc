@@ -21,6 +21,7 @@ Plug 'ziglang/zig.vim', {'for': 'zig'}              " Zig-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
+Plug 'https://gitlab.com/inko-lang/inko.vim', {'for': 'inko'} " Inko-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
