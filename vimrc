@@ -177,6 +177,7 @@ nnoremap <leader>W :setlocal nowrap<cr>
 augroup gobindings
   autocmd!
   autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
+  autocmd FileType go nmap <leader>a :GoAlternate<cr>
   autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
   autocmd FileType go nmap <leader>gi <Plug>(go-info)
   autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
