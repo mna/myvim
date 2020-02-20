@@ -16,11 +16,7 @@ Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'vimwiki/vimwiki'                              " wiki
-Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}   " Dart-specific
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
-Plug 'zah/nim.vim', {'for': 'nim'}                  " Nim-specific
-Plug 'fasterthanlime/ooc.vim', {'for': 'ooc'}       " Ooc-specific
-Plug 'keith/swift.vim', {'for': 'swift'}            " Swift-specific
 Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
 Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
@@ -101,10 +97,6 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
 
-" dart config
-let dart_style_guide = 2
-let dart_format_on_save = 1
-
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
   return fnamemodify(expand("%"), ":~:.")
@@ -126,30 +118,8 @@ let g:lightline.colorscheme='falcon'
 " dirvish: sort folders together
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
-" Zig: use stage 2 compiler for formatting
-let g:zig_fmt_autosave = 1
-let g:zig_fmt_command = ['zig', 'fmt', '--color', 'off']
-
 " Terraform: fmt on save
 let g:terraform_fmt_on_save = 1
-
-" Nim: goto definition
-fun! JumpToDef()
-  if exists("*GotoDefinition_" . &filetype)
-    call GotoDefinition_{&filetype}()
-  else
-    exe "norm! \<C-]>"
-  endif
-endf
-
-augroup nimbindings
-  autocmd!
-  autocmd FileType nim nmap gd :call JumpToDef()<cr>
-augroup END
-
-" Jump to tag
-nn <M-g> :call JumpToDef()<cr>
-ino <M-g> <esc>:call JumpToDef()<cr>i
 
 
 "
@@ -162,6 +132,7 @@ nnoremap <leader>e :Dirvish<cr>
 " fzf bindings
 nnoremap ; :Buffers<CR>
 nnoremap <leader>; :Files<CR>
+nnoremap <leader>R :History<CR>
 
 " ack/ag bindings
 nnoremap <leader>f :Ack --ignore-dir "vendor/"<Space>
@@ -172,6 +143,9 @@ nnoremap <leader>u :UnicodeSearch!<Space>
 " wrap/nowrap
 nnoremap <leader>w :setlocal wrap<cr>
 nnoremap <leader>W :setlocal nowrap<cr>
+
+" view/select/open recent files
+nnoremap <leader>r :browse oldfiles<cr>
 
 " Vim-Go bindings
 augroup gobindings
