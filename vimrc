@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'skywind3000/quickmenu.vim'                    " discoverable keybindings via menu
+Plug 'mna/quickmenu.vim'                            " discoverable keybindings via menu
 Plug 'tpope/vim-sensible'                           " sensible vim defaults
 Plug 'justinmk/vim-dirvish'                         " alternative to vim-vinegar and netrw
 Plug 'Valloric/ListToggle'                          " toggle loclist and quickfix
