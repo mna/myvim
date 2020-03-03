@@ -71,7 +71,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:ackprg = 'ag --vimgrep'
 
 " quickmenu setup
-nnoremap <silent><space> :call quickmenu#toggle(0)<cr>
+nnoremap <silent><space> :call quickmenu#bottom(0)<cr>
 " enable cursorline (L) and cmdline help (H)
 let g:quickmenu_options = "HL"
 let g:quickmenu_disable_nofile = 0

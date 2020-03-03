@@ -1,12 +1,14 @@
+" TODO: use letters/mnemonics instead of numbers, see PR on original quickmenu
 call quickmenu#current(0)
 call quickmenu#reset()
 call quickmenu#header("Main menu")
-call quickmenu#append("Buffers", 'call quickmenu#toggle(1)', 'Manage buffers')
-call quickmenu#append("Windows & Tabs", 'call quickmenu#toggle(2)', 'Manage windows/tabs')
-call quickmenu#append("Files", 'call quickmenu#toggle(3)', 'Manage files')
-call quickmenu#append("Git", 'call quickmenu#toggle(4)', 'Git version control commands')
-call quickmenu#append("Go", 'echo "go"', 'Go-specific commands', 'go')
-call quickmenu#append("Markdown", 'echo "markdown"', 'Markdown-specific commands', 'markdown')
+call quickmenu#append("Buffers", 'call quickmenu#bottom(1)', 'Manage buffers')
+call quickmenu#append("Windows & Tabs", 'call quickmenu#bottom(2)', 'Manage windows/tabs')
+call quickmenu#append("Files", 'call quickmenu#bottom(3)', 'Manage files')
+call quickmenu#append("Git", 'call quickmenu#bottom(4)', 'Git version control commands')
+call quickmenu#append("Go", 'call quickmenu#bottom(5)', 'Go-specific commands', 'go')
+call quickmenu#append("Markdown", 'call quickmenu#bottom(6)', 'Markdown-specific commands', 'markdown')
+call quickmenu#append("Vim", 'call quickmenu#bottom(7)', 'Vim-related commands')
 
 call quickmenu#current(1)
 call quickmenu#reset()
@@ -31,7 +33,7 @@ call quickmenu#append("Close Others+Tabs", 'only|tabonly', 'Close all windows an
 call quickmenu#append("Close Others+Tabs", 'only|tabonly', 'Close all windows and tabs except current buffer (:only|tabonly)')
 call quickmenu#append("New Tab", 'tabnew', 'Create new tab (:tabnew | <leader>tn)')
 call quickmenu#append("Cycle Tabs", 'tabnext', 'Cycle through tags (:tabnext | :tabprevious  | gt | gT | <N>gt)')
-call quickmenu#append("Sync Scroll", 'scrollbind', 'Bind scrolling of windows (repeat in each) (:scrollbind)')
+call quickmenu#append("Sync Scroll", 'set scrollbind', 'Bind scrolling of windows (repeat in each) (:set scrollbind)')
 
 call quickmenu#current(3)
 call quickmenu#reset()
@@ -53,3 +55,23 @@ call quickmenu#append("Conflicts", "Git mergetool", "Load conflicts in quickfix 
 call quickmenu#current(5)
 call quickmenu#reset()
 call quickmenu#header("Main menu > Go")
+call quickmenu#append("Rename %{expand('<cword>')}", 'ALERename', 'Rename symbol under cursor (:ALERename | <leader>gr)')
+call quickmenu#append("Find References Of %{expand('<cword>')}", 'ALEFindReferences', 'Find references to the symbol under cursor (:ALEFindReferences | <leader>gu)')
+call quickmenu#append("Search In Project", 'Ack --ignore "*_test.go" --ignore-dir "vendor/" ', 'Search in project (:Ack ... | <leader>F)')
+" TODO: test current dir (see
+" https://vi.stackexchange.com/questions/14519/how-to-run-internal-vim-terminal-at-current-files-dir)
+" Run the current test/benchmark/test of current func
+" Go to alternate test file
+" Godoc/Go info of current symbol
+" Go code coverage highlighting (just the gutter?)
+" Goto Next/previous error
+
+call quickmenu#current(6)
+call quickmenu#reset()
+call quickmenu#header("Main menu > Markdown")
+call quickmenu#append("Distraction-Free", 'Goyo', 'Toggle distraction-free mode (:Goyo)')
+call quickmenu#append("Format Table", 'EasyAlign*|', 'Auto-format table (:EasyAlign*<bar> | <leader><bslash>)')
+
+call quickmenu#current(7)
+call quickmenu#reset()
+call quickmenu#header("Main menu > Vim")
