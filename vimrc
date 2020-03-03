@@ -15,7 +15,7 @@ Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer nam
 Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
-Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
+"Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -79,26 +79,35 @@ let g:ale_sign_highlight_linenrs = 1
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
 let g:ale_completion_enabled = 1
-let g:ale_linters = {
-\   'javascript': ['standard', 'eslint'],
-\   'c': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
-\   'cpp': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
-\}
-let g:ale_fixers = {
-\   'javascript': ['standard', 'eslint'],
-\}
+let g:ale_completion_delay = 200
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 highlight ALEWarningSign ctermfg=Yellow guifg=Yellow
 highlight ALEErrorSign ctermfg=Red guifg=Red
 
+" ALE setup of linters and fixers
+let g:ale_linters = {
+\   'javascript': ['standard', 'eslint'],
+\   'c': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
+\   'cpp': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
+\   'go': ['gopls', 'golangci-lint'],
+\}
+let g:ale_fixers = {
+\   'javascript': ['standard', 'eslint'],
+\   'go': ['goimports'],
+\}
+
+" ALE Go setup
+let g:ale_go_golangci_lint_options = ''
+let g:ale_go_golangci_lint_package = 1
+
 " Set vim-go settings (see https://github.com/fatih/vim-go)
-let g:go_fmt_command = "goimports"
-let g:go_test_show_name = 1
-let g:go_test_timeout= '30s'
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_metalinter_command='golangci-lint'
+"let g:go_fmt_command = "goimports"
+"let g:go_test_show_name = 1
+"let g:go_test_timeout= '30s'
+"let g:go_def_mode='gopls'
+"let g:go_info_mode='gopls'
+"let g:go_metalinter_command='golangci-lint'
 
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
@@ -146,14 +155,17 @@ nnoremap <leader>W :setlocal nowrap<cr>
 " view/select/open recent files
 nnoremap <leader>r :browse oldfiles<cr>
 
-" Vim-Go bindings
+" Go-specific bindings
 augroup gobindings
   autocmd!
-  autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
-  autocmd FileType go nmap <leader>a :GoAlternate<cr>
-  autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-  autocmd FileType go nmap <leader>gi <Plug>(go-info)
-  autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
+  autocmd FileType go nnoremap gd :ALEGoToDefinition<CR>
+  autocmd FileType go nnoremap <leader>gr :ALERename<CR>
+  autocmd FileType go nnoremap <leader>gu :ALEFindReferences<CR>
+  "autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
+  "autocmd FileType go nmap <leader>a :GoAlternate<cr>
+  "autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+  "autocmd FileType go nmap <leader>gi <Plug>(go-info)
+  "autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
 augroup END
 
