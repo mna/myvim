@@ -1,6 +1,8 @@
 call plug#begin()
+Plug 'skywind3000/quickmenu.vim'                    " discoverable keybindings via menu
 Plug 'tpope/vim-sensible'                           " sensible vim defaults
 Plug 'justinmk/vim-dirvish'                         " alternative to vim-vinegar and netrw
+Plug 'Valloric/ListToggle'                          " toggle loclist and quickfix
 Plug 'tpope/vim-fugitive'                           " git commands
 Plug 'flazz/vim-colorschemes'                       " colors
 Plug 'fenetikm/falcon'                              " more color
@@ -15,7 +17,6 @@ Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer nam
 Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
-"Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -69,6 +70,17 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " ack.vim setup
 let g:ackprg = 'ag --vimgrep'
 
+" quickmenu setup
+nnoremap <silent><space> :call quickmenu#toggle(0)<cr>
+" enable cursorline (L) and cmdline help (H)
+let g:quickmenu_options = "HL"
+let g:quickmenu_disable_nofile = 0
+source ~/.vim/quickmenu.vim
+
+" ListToggle setup
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>c'
+
 " ALE setup - check only on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
@@ -100,14 +112,6 @@ let g:ale_fixers = {
 " ALE Go setup
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
-
-" Set vim-go settings (see https://github.com/fatih/vim-go)
-"let g:go_fmt_command = "goimports"
-"let g:go_test_show_name = 1
-"let g:go_test_timeout= '30s'
-"let g:go_def_mode='gopls'
-"let g:go_info_mode='gopls'
-"let g:go_metalinter_command='golangci-lint'
 
 " lightline: display relative path to file if not in current dir
 function! LightlineRelativePath()
@@ -152,9 +156,6 @@ nnoremap <leader>u :UnicodeSearch!<Space>
 nnoremap <leader>w :setlocal wrap<cr>
 nnoremap <leader>W :setlocal nowrap<cr>
 
-" view/select/open recent files
-nnoremap <leader>r :browse oldfiles<cr>
-
 " Go-specific bindings
 augroup gobindings
   autocmd!
@@ -195,17 +196,6 @@ nnoremap <leader>J :%!jq . -c<CR>
 
 " Pretty-print html
 nnoremap <leader>m :%!tidy -qi --show-errors 0 --show-warnings false<CR>
-
-" open/close quick fix window
-nnoremap <leader>c :copen<CR>
-nnoremap <leader>C :cclose<CR>
-
-" open/close location window
-nnoremap <leader>l :lopen<CR>
-nnoremap <leader>L :lclose<CR>
-
-" close scratch (preview) window
-nnoremap <leader>S :pclose<CR>
 
 " switch color scheme
 nnoremap <leader>sl :colorscheme lightning<CR>
