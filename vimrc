@@ -7,7 +7,7 @@ Plug 'fenetikm/falcon'                              " more color
 Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
-Plug 'w0rp/ale'                                     " linters
+Plug 'dense-analysis/ale'                           " linters
 Plug 'chrisbra/unicode.vim'                         " unicode characters
 " Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
@@ -15,10 +15,7 @@ Plug 'junegunn/fzf.vim'                             " fuzzy-find file/buffer nam
 Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
-Plug 'vimwiki/vimwiki'                              " wiki
 Plug 'fatih/vim-go', {'for': 'go'}                  " Go-specific
-Plug 'hashivim/vim-terraform', {'for': 'tf'}        " Terraform-specific
-Plug 'cespare/vim-toml', {'for': 'toml'}            " Toml-specific
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
@@ -72,27 +69,33 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " ack.vim setup
 let g:ackprg = 'ag --vimgrep'
 
-" vimwiki config
-let g:vimwiki_list = [{'path': '$XDG_DATA_HOME/wikis/default'}]
-
 " ALE setup - check only on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_open_list = 'on_save'
+let g:ale_set_loclist = 1
+let g:ale_sign_highlight_linenrs = 1
+let g:ale_sign_warning = '•'
+let g:ale_sign_error = '•'
+let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \   'javascript': ['standard', 'eslint'],
 \   'c': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
 \   'cpp': ['cppcheck', 'clang', 'flawfinder', 'gcc'],
 \}
-let g:ale_fixers = {'javascript': ['standard', 'eslint']}
+let g:ale_fixers = {
+\   'javascript': ['standard', 'eslint'],
+\}
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
+highlight ALEWarningSign ctermfg=Yellow guifg=Yellow
+highlight ALEErrorSign ctermfg=Red guifg=Red
 
 " Set vim-go settings (see https://github.com/fatih/vim-go)
 let g:go_fmt_command = "goimports"
 let g:go_test_show_name = 1
 let g:go_test_timeout= '30s'
-" fixes lost folds on save (see https://github.com/fatih/vim-go/issues/502)
-" let g:go_fmt_experimental = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
@@ -117,10 +120,6 @@ let g:lightline.colorscheme='falcon'
 
 " dirvish: sort folders together
 let g:dirvish_mode = ':sort ,^.*[\/],'
-
-" Terraform: fmt on save
-let g:terraform_fmt_on_save = 1
-
 
 "
 " Key bindings
@@ -156,12 +155,6 @@ augroup gobindings
   autocmd FileType go nmap <leader>gi <Plug>(go-info)
   autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
-  " define folds based on syntax (see vim-go help for fold options)
-  "autocmd FileType go setlocal foldmethod=syntax
-  " expand all folds by default
-  "autocmd FileType go :normal! zR
-  " set a start fold level, to prevent collapsing blocks on save of a new file
-  "autocmd FileType go setlocal foldlevelstart=5
 augroup END
 
 " YankStack override of default bindings
@@ -178,7 +171,11 @@ augroup END
 au BufRead,BufNewFile *.mail set filetype=mail
 
 " Useful leader mappings
-nnoremap <leader>n :tabnew<CR>
+nnoremap <leader>tn :tabnew<CR>
+
+" next/previous loclist (error)
+nnoremap <silent> <leader>n :lnext<CR>
+nnoremap <silent> <leader>N :lprev<CR>
 
 " Pretty-print json, uglify json
 nnoremap <leader>j :%!jq .<CR>
