@@ -71,8 +71,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:ackprg = 'ag --vimgrep'
 
 " quickmenu setup
-nnoremap <silent><space> :call quickmenu#bottom(0)<cr>
-" enable cursorline (L) and cmdline help (H)
 let g:quickmenu_options = "HL"
 let g:quickmenu_disable_nofile = 0
 source ~/.vim/quickmenu.vim
@@ -134,27 +132,46 @@ let g:lightline.colorscheme='falcon'
 " dirvish: sort folders together
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
+" automatically set the mail filetype for .mail
+au BufRead,BufNewFile *.mail set filetype=mail
+
 "
 " Key bindings
 "
 
 let mapleader = ","
+nnoremap <leader>tn :tabnew<CR>
+" disable entering ex-mode
+nnoremap Q <nop>
+" dirvish binding
 nnoremap <leader>e :Dirvish<cr>
-
+" quickmenu binding
+nnoremap <silent><space> :call quickmenu#bottom(0)<cr>
 " fzf bindings
 nnoremap ; :Buffers<CR>
 nnoremap <leader>; :Files<CR>
 nnoremap <leader>R :History<CR>
-
 " ack/ag bindings
 nnoremap <leader>f :Ack --ignore-dir "vendor/"<Space>
-
 " unicode bindings
 nnoremap <leader>u :UnicodeSearch!<Space>
-
 " wrap/nowrap
 nnoremap <leader>w :setlocal wrap<cr>
 nnoremap <leader>W :setlocal nowrap<cr>
+" YankStack override of default bindings
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
+" next/previous loclist (error)
+nnoremap <silent> <leader>n :lnext<CR>
+nnoremap <silent> <leader>N :lprev<CR>
+" Pretty-print json, uglify json
+nnoremap <leader>j :%!jq .<CR>
+nnoremap <leader>J :%!jq . -c<CR>
+" Pretty-print html
+nnoremap <leader>m :%!tidy -qi --show-errors 0 --show-warnings false<CR>
+" switch color scheme
+nnoremap <leader>sl :colorscheme lightning<CR>
+nnoremap <leader>sd :colorscheme falcon<CR>
 
 " Go-specific bindings
 augroup gobindings
@@ -170,34 +187,9 @@ augroup gobindings
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
 augroup END
 
-" YankStack override of default bindings
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
-
 " EasyAlign bindings, align GitHub-flavored Markdown tables
 augroup markdownbindings
   autocmd!
   autocmd FileType markdown vnoremap <leader><Bslash> :EasyAlign*<Bar><Enter>
 augroup END
-
-" automatically set the mail filetype for .mail
-au BufRead,BufNewFile *.mail set filetype=mail
-
-" Useful leader mappings
-nnoremap <leader>tn :tabnew<CR>
-
-" next/previous loclist (error)
-nnoremap <silent> <leader>n :lnext<CR>
-nnoremap <silent> <leader>N :lprev<CR>
-
-" Pretty-print json, uglify json
-nnoremap <leader>j :%!jq .<CR>
-nnoremap <leader>J :%!jq . -c<CR>
-
-" Pretty-print html
-nnoremap <leader>m :%!tidy -qi --show-errors 0 --show-warnings false<CR>
-
-" switch color scheme
-nnoremap <leader>sl :colorscheme lightning<CR>
-nnoremap <leader>sd :colorscheme falcon<CR>
 
