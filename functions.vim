@@ -83,3 +83,13 @@ function! MyCurrentFuncName()
   echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bWn'))
   echohl None
 endfun
+
+function! MyGoCoverageInBrowser()
+  let l:tmpname = tempname()
+  let l:result = system('go test -coverprofile ' . l:tmpname)
+  if v:shell_error == 0
+    call system('go tool cover -html=' . l:tmpname)
+  endif
+  call delete(l:tmpname)
+endfunction
+

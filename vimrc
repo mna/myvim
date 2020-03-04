@@ -169,9 +169,7 @@ augroup gobindings
   autocmd FileType go nnoremap <leader>gr :ALERename<CR>
   autocmd FileType go nnoremap <leader>gu :ALEFindReferences<CR>
   autocmd FileType go nmap <leader>ga :call MyGoAlternateFile()<cr>
-  "autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-  "autocmd FileType go nmap <leader>gi <Plug>(go-info)
-  "autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
+  autocmd FileType go nmap <leader>gc :call MyGoCoverageInBrowser()<cr>
   autocmd FileType go nnoremap <leader>F :Ack --ignore "*_test.go" --ignore-dir "vendor/"<Space>
 augroup END
 

@@ -28,6 +28,7 @@ call quickmenu#append("Delete Others", '%bdelete|edit#', 'Delete all buffers exc
 call quickmenu#append("Location List", 'LToggle', 'Toggle loclist (:lopen | :lclose | <leader>l)', '', 4, 'L')
 call quickmenu#append("Quick Fix", 'QToggle', 'Toggle quick fix (:copen | :cclose | <leader>c)', '', 5, 'q')
 call quickmenu#append("Close Preview", 'pclose', 'Close preview (scratch) (:pclose | <ctrl-w> z)', '', 6, 'c')
+call quickmenu#append("Delete Marks", 'delmarks!', 'Delete local marks (:delmarks!)', '', 7, 'm')
 
 call quickmenu#current(2)
 call quickmenu#reset()
@@ -70,12 +71,9 @@ call quickmenu#append("Find References Of %{expand('<cword>')}", 'ALEFindReferen
 call quickmenu#append("Search In Go Code", 'call MySearchGoCode()', 'Search in project (:Ack ... | <leader>F)', '', 3, 's')
 call quickmenu#append("Search %{expand('<cword>')} In Go Code", 'call MySearchGoCode(expand("<cword>"))', 'Search symbol under cursor in project (:Ack ... | <leader>F)', '', 3, 'S')
 call quickmenu#append("Open Alternate File", 'call MyGoAlternateFile()', 'Open alternate Go file (code <-> test) (<leader>ga)', '', 4, 'a')
-" TODO: test current dir (see
-" https://vi.stackexchange.com/questions/14519/how-to-run-internal-vim-terminal-at-current-files-dir)
+call quickmenu#append("Goto Next Error", 'lnext', 'Goto next error in loclist (:lnext | :lprev | <leader>n/N)', '', 5, 'n')
+call quickmenu#append("Test Coverage", 'call MyGoCoverageInBrowser()', 'View test coverage of current package in browser', '', 6, 'c')
 " Run the current test/benchmark/test of current func
-" Godoc/Go info of current symbol
-" Go code coverage highlighting (just the gutter?)
-" Goto Next/previous error
 
 call quickmenu#current(6)
 call quickmenu#reset()
@@ -100,6 +98,12 @@ call quickmenu#header("Main menu > Vim")
 call quickmenu#append("Paste Ring", 'execute "normal \<Plug>yankstack_substitute_older_paste"', 'Paste previous clipboard item (<leader>p | <leader>P)', '', 1, 'p')
 call quickmenu#append("Toggle Paste", 'set paste!', 'Toggle paste mode (:set paste!)', '', 2, 'P')
 call quickmenu#append("Toggle Wrap", 'setlocal wrap!', 'Toggle line-wrapping (:setlocal wrap! | <leader>w | <leader>W)', '', 3, 'w')
-call quickmenu#append("Unicode", 'call MyUnicodeSearch()', 'Search unicode codepoint (:UnicodeSearch! | <leader>u)', '', 4, 'u')
-call quickmenu#append("Color Scheme", 'call MyToggleColorscheme()', 'Toggle light/dark color scheme (:colorscheme <scheme> | <leader>sl | <leader>sd)', '', 5, 'c')
-call quickmenu#append("Terminal At Current Directory", 'call MyTerminalAtCurrentDirectory()', 'Open terminal at current buffer directory (:terminal ...)', '', 6, 't')
+call quickmenu#append("Record Macro", 'call feedkeys("qa", "n")', 'Star recording macro "a" (q<X> ... q ... <N>@<X>)', '', 4, 'q')
+call quickmenu#append("Unicode", 'call MyUnicodeSearch()', 'Search unicode codepoint (:UnicodeSearch! | <leader>u)', '', 5, 'u')
+call quickmenu#append("Color Scheme", 'call MyToggleColorscheme()', 'Toggle light/dark color scheme (:colorscheme <scheme> | <leader>sl | <leader>sd)', '', 6, 'c')
+call quickmenu#append("Terminal At Current Directory", 'call MyTerminalAtCurrentDirectory()', 'Open terminal at current buffer directory (:terminal ...)', '', 7, 't')
+call quickmenu#append("Registers", 'registers', 'List registers (:registers | "<R>y | "<R>p)', '', 8, 'r')
+call quickmenu#append("Marks", 'marks', "List marks (:marks | m<x|X> | '<x|X>)", '', 9, 'm')
+call quickmenu#append("Open Folds", 'call feedkeys("zR", "n")', "Open all folds recursively (zR/zM | e.g. zf{motion} or va}zf | zo/zc/za, zd | zO/zC/zA, zD)", '', 10, 'z')
+call quickmenu#append("Close Folds", 'call feedkeys("zM", "n")', "Close all folds recursively (zR/zM | e.g. zf{motion} or va}zf | zo/zc/za, zd | zO/zC/zA, zD)", '', 11, 'Z')
+call quickmenu#append("Delete Folds", 'call feedkeys("zE", "n")', "Delete all folds (zE)", '', 12, 'd')
