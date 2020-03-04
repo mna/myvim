@@ -20,9 +20,16 @@ Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports ma
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
 call plug#end()
 
-"
+" ###############################################
+" Constant definitions
+" ###############################################
+const g:my_colorscheme_dark = 'falcon'
+const g:my_colorscheme_light = 'lightning'
+source ~/.vim/functions.vim
+
+" ###############################################
 " Vim Configuration
-"
+" ###############################################
 
 " move viminfo outside the home dir
 set viminfo+=n~/.vim/viminfo
@@ -43,8 +50,8 @@ set number
 " disable bell beep
 set belloff=all
 
-" color scheme
-colorscheme falcon
+" color scheme, dark by default
+call MySetColorschemeDark()
 " termguicolors required for falcon theme
 set termguicolors
 
@@ -60,9 +67,12 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
-"
+" automatically set the mail filetype for .mail
+au BufRead,BufNewFile *.mail set filetype=mail
+
+" ###############################################
 " Plugin Configuration
-"
+" ###############################################
 
 " editorconfig setup
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -111,33 +121,12 @@ let g:ale_fixers = {
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
 
-" lightline: display relative path to file if not in current dir
-function! LightlineRelativePath()
-  return fnamemodify(expand("%"), ":~:.")
-endfunction
-let g:lightline = {
-      \ 'active': {
-      \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'relativepath': 'LightlineRelativePath'
-      \ }
-      \ }
-" lightline+falcon: use falcon colorscheme
-let g:falcon_lightline = 1
-let g:lightline.colorscheme='falcon'
-
 " dirvish: sort folders together
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
-" automatically set the mail filetype for .mail
-au BufRead,BufNewFile *.mail set filetype=mail
-
-"
+" ###############################################
 " Key bindings
-"
+" ###############################################
 
 let mapleader = ","
 nnoremap <leader>tn :tabnew<CR>
@@ -170,8 +159,8 @@ nnoremap <leader>J :%!jq . -c<CR>
 " Pretty-print html
 nnoremap <leader>m :%!tidy -qi --show-errors 0 --show-warnings false<CR>
 " switch color scheme
-nnoremap <leader>sl :colorscheme lightning<CR>
-nnoremap <leader>sd :colorscheme falcon<CR>
+nnoremap <leader>sl :call MySetColorschemeLight()<cr>
+nnoremap <leader>sd :call MySetColorschemeDark()<cr>
 
 " Go-specific bindings
 augroup gobindings
@@ -179,8 +168,7 @@ augroup gobindings
   autocmd FileType go nnoremap gd :ALEGoToDefinition<CR>
   autocmd FileType go nnoremap <leader>gr :ALERename<CR>
   autocmd FileType go nnoremap <leader>gu :ALEFindReferences<CR>
-  "autocmd FileType go nmap <leader>ga <Plug>(go-alternate-vertical)
-  "autocmd FileType go nmap <leader>a :GoAlternate<cr>
+  autocmd FileType go nmap <leader>ga :call MyGoAlternateFile()<cr>
   "autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
   "autocmd FileType go nmap <leader>gi <Plug>(go-info)
   "autocmd FileType go nmap <leader>gt <Plug>(go-coverage-toggle)
