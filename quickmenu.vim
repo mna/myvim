@@ -18,8 +18,8 @@ call quickmenu#append("Markdown", 'call quickmenu#bottom(6)', 'Markdown-specific
 call quickmenu#append("Html", 'call quickmenu#bottom(7)', 'Html-specific commands', 'html', 7, 'h')
 call quickmenu#append("Json", 'call quickmenu#bottom(8)', 'Json-specific commands', 'json', 8, 'j')
 call quickmenu#append("Vim", 'call quickmenu#bottom(9)', 'Vim-related commands', '', 9, 'v')
-call quickmenu#append("Save Session", ':mksession!', 'Save current Vim session (:mksession!)', '', 10, 's')
-call quickmenu#append("Load Session", ':source Session.vim', 'Load Vim session (:source Session.vim)', '', 11, 'l')
+call quickmenu#append("Save Session & Quit", 'mksession!|quitall', 'Save current Vim session and quit (:mksession!|quitall)', '', 10, 's')
+call quickmenu#append("Load Session", 'source Session.vim', 'Load Vim session (:source Session.vim)', '', 11, 'l')
 
 call quickmenu#current(1)
 call quickmenu#reset()
