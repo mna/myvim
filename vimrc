@@ -73,8 +73,6 @@ let &t_EI = "\<Esc>[2 q"
 
 " automatically set the mail filetype for .mail
 au BufRead,BufNewFile *.mail set filetype=mail
-" hide terminal buffer on close
-au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
 
 " ###############################################
 " Plugin Configuration
@@ -138,6 +136,8 @@ let mapleader = ","
 
 " hide terminal
 tnoremap <C-q> <C-W>:hide<cr>
+" exit terminal
+tnoremap <C-d> <C-W>:bdelete!<cr>
 " enter normal mode (vs terminal mode) using esc as for standard buffers
 tnoremap <Esc> <C-\><C-n>
 
