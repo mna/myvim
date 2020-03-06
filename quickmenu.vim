@@ -18,7 +18,7 @@ call quickmenu#append("Markdown", 'call quickmenu#bottom(6)', 'Markdown-specific
 call quickmenu#append("Html", 'call quickmenu#bottom(7)', 'Html-specific commands', 'html', 7, 'h')
 call quickmenu#append("Json", 'call quickmenu#bottom(8)', 'Json-specific commands', 'json', 8, 'j')
 call quickmenu#append("Vim", 'call quickmenu#bottom(9)', 'Vim-related commands', '', 9, 'v')
-call quickmenu#append("Terminal", 'call MyToggleTerminal()', 'Toggle terminal (:terminal)', '', 10, 'T')
+call quickmenu#append("Terminal", 'call MyToggleTerminal()', 'Toggle terminal (:terminal)', '', 10, '.')
 call quickmenu#append("Save Session & Quit", 'mksession!|quitall', 'Save current Vim session and quit (:mksession!|quitall)', '', 11, 's')
 call quickmenu#append("Load Session", 'source Session.vim', 'Load Vim session (:source Session.vim)', '', 12, 'l')
 
