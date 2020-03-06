@@ -60,12 +60,6 @@ function! MySearchGoCode(word='')
   endif
 endfunction
 
-function! MyTerminalAtCurrentDirectory()
-  let $VIM_DIR = expand('%:p:h')
-  botright terminal
-  call feedkeys("cd $VIM_DIR\<cr>clear\<cr>", 'n')
-endfunction
-
 function! MyGoAlternateFile()
   let file = expand("%")
   if file =~ '_test\.go$'
@@ -93,3 +87,15 @@ function! MyGoCoverageInBrowser()
   call delete(l:tmpname)
 endfunction
 
+function! MyToggleTerminal()
+  let l:terms = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
+  let l:visterms = filter(copy(l:terms), 'bufwinnr(v:val) != -1')
+  if len(l:visterms) > 0
+    execute(l:visterms[0] . "wincmd w")
+  elseif len(l:terms) > 0
+    execute('botright sbuffer ' . l:terms[0])
+  else
+    let l:wd = expand('%:p:h')
+    botright call term_start('bash', {'cwd': l:wd})
+  endif
+endfunction
