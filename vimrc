@@ -94,20 +94,24 @@ let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>c'
 
 " ALE setup - check only on save
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_filetype_changed = 0
+
 let g:ale_open_list = 'on_save'
 let g:ale_set_loclist = 1
 let g:ale_sign_highlight_linenrs = 1
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
-let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 200
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
 highlight ALEWarningSign ctermfg=Yellow guifg=Yellow
 highlight ALEErrorSign ctermfg=Red guifg=Red
+
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 200
+set omnifunc=ale#completion#OmniFunc
 
 " ALE setup of linters and fixers
 let g:ale_linters = {
@@ -140,6 +144,9 @@ tnoremap <C-q> <C-W>:hide<cr>
 tnoremap <C-d> <C-W>:bdelete!<cr>
 " enter normal mode (vs terminal mode) using esc as for standard buffers
 tnoremap <Esc> <C-\><C-n>
+" forward arrow keys (escape sequences) to terminal
+tmap <expr> <Esc>]A MySendTerm("\<Esc>]A")
+tmap <expr> <Esc>]B MySendTerm("\<Esc>]B")
 
 nnoremap <leader>tn :tabnew<CR>
 " disable entering ex-mode

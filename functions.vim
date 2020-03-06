@@ -91,11 +91,24 @@ function! MyToggleTerminal()
   let l:terms = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
   let l:visterms = filter(copy(l:terms), 'bufwinnr(v:val) != -1')
   if len(l:visterms) > 0
-    execute(l:visterms[0] . "wincmd w")
+    execute bufwinnr(l:visterms[0]) . "wincmd w"
   elseif len(l:terms) > 0
     execute('botright sbuffer ' . l:terms[0])
   else
     let l:wd = expand('%:p:h')
     botright call term_start('bash', {'cwd': l:wd})
   endif
+endfunction
+
+function! MySendTerm(keys)
+  call term_sendkeys('', a:keys)
+  return ''
+endfunction
+
+function! MySaveSessionAndQuit()
+  mksession!
+  " force-close any terminal buffer to prevent blocking quit
+  let l:terms = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
+  call filter(l:terms, 'execute("bdelete! " . v:val)')
+  quitall
 endfunction
