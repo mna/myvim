@@ -112,6 +112,7 @@ highlight ALEErrorSign ctermfg=Red guifg=Red
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
 set omnifunc=ale#completion#OmniFunc
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 " ALE setup of linters and fixers
 let g:ale_linters = {
