@@ -43,9 +43,10 @@ call quickmenu#append("Wider", 'vertical resize +5', 'Make window wider (:vertic
 call quickmenu#append("Taller", 'resize +5', 'Make window taller (:resize [+-]<N> | <ctrl-w>+)', '', 5, 'T')
 call quickmenu#append("Close Others", 'only', 'Close all windows except current buffer (:only)', '', 6, 'c')
 call quickmenu#append("Close Others+Tabs", 'only|tabonly', 'Close all windows and tabs except current buffer (:only|tabonly)', '', 7, 'C')
-call quickmenu#append("New Tab", 'tabnew', 'Create new tab (:tabnew | <leader>tn)', '', 8, 't')
-call quickmenu#append("Cycle Tabs", 'tabnext', 'Cycle through tags (:tabnext | :tabprevious  | gt | gT | <N>gt)', '', 9, 'n')
-call quickmenu#append("Sync Scroll", 'set scrollbind', 'Bind scrolling of windows (repeat in each) (:set scrollbind)', '', 10, 's')
+call quickmenu#append("Close Special Windows", 'Windo call MyCloseNonBufWindows()', 'Close all non-buffer windows (:call MyCloseNonBufWindows())', '', 8, 'x')
+call quickmenu#append("New Tab", 'tabnew', 'Create new tab (:tabnew | <leader>tn)', '', 9, 't')
+call quickmenu#append("Cycle Tabs", 'tabnext', 'Cycle through tags (:tabnext | :tabprevious  | gt | gT | <N>gt)', '', 10, 'n')
+call quickmenu#append("Sync Scroll", 'set scrollbind', 'Bind scrolling of windows (repeat in each) (:set scrollbind)', '', 11, 's')
 
 call quickmenu#current(3)
 call quickmenu#reset()

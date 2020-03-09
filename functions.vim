@@ -112,3 +112,18 @@ function! MySaveSessionAndQuit()
   call filter(l:terms, 'execute("bdelete! " . v:val)')
   quitall
 endfunction
+
+" Closes all non-buffer-backed windows, i.e. the location list, quick fix and
+" preview. Should be called with windo.
+function! MyCloseNonBufWindows()
+  if &buftype == "quickfix" || &buftype == "popup" || &buftype == "help" | quit | endif
+endfunction
+
+" Like windo but restores original window at the end.
+function! MyWindoRestore(cmd)
+  let cur = winnr()
+  execute 'windo ' . a:cmd
+  execute cur . 'wincmd w'
+endfunction
+com! -nargs=+ -complete=command Windo call MyWindoRestore(<q-args>)
+
