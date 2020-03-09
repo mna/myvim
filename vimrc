@@ -108,6 +108,7 @@ let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
 highlight ALEWarningSign ctermfg=Yellow guifg=Yellow
 highlight ALEErrorSign ctermfg=Red guifg=Red
+highlight link ALEError Error
 
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
