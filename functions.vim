@@ -79,8 +79,12 @@ function! MyCurrentFuncName()
 endfun
 
 function! MyGoCoverageInBrowser()
+  let l:wd = fnamemodify(expand("%:h"), ":.")
+  if l:wd != "" && l:wd !~ "^\.\/"
+    let l:wd = "./" . l:wd
+  endif
   let l:tmpname = tempname()
-  let l:result = system('go test -coverprofile ' . l:tmpname)
+  let l:result = system('go test ' . l:wd . ' -coverprofile ' . l:tmpname)
   if v:shell_error == 0
     call system('go tool cover -html=' . l:tmpname)
   endif
