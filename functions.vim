@@ -125,9 +125,9 @@ endfunction
 
 " Like windo but restores original window at the end.
 function! MyWindoRestore(cmd)
-  let cur = winnr()
+  let cur = bufnr()
   execute 'windo ' . a:cmd
-  execute cur . 'wincmd w'
+  execute bufwinnr(cur) . 'wincmd w'
 endfunction
 com! -nargs=+ -complete=command Windo call MyWindoRestore(<q-args>)
 
