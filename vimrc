@@ -101,7 +101,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_filetype_changed = 0
 
-let g:ale_open_list = 'on_save'
+let g:ale_open_list = 0 "too annoying when 'on_save'
 let g:ale_set_loclist = 1
 let g:ale_sign_highlight_linenrs = 1
 let g:ale_sign_warning = '•'
