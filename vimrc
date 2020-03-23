@@ -182,6 +182,11 @@ nnoremap <leader>m :%!tidy -qi --show-errors 0 --show-warnings false<CR>
 " switch color scheme
 nnoremap <leader>sl :call MySetColorschemeLight()<cr>
 nnoremap <leader>sd :call MySetColorschemeDark()<cr>
+" surround word in quotes (https://stackoverflow.com/a/2148221/1094941)
+nnoremap <Leader>q" ciw""<Esc>P
+nnoremap <Leader>q' ciw''<Esc>P
+nnoremap <Leader>q` ciw``<Esc>P
+nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
 
 " Go-specific bindings
 augroup gobindings
