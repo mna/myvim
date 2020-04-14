@@ -205,3 +205,9 @@ augroup markdownbindings
   autocmd FileType markdown vnoremap <leader><Bslash> :EasyAlign*<Bar><Enter>
 augroup END
 
+" for copy/paste to system clipboard on wayland
+" https://www.reddit.com/r/Fedora/comments/ax9p9t/vim_and_system_clipboard_under_wayland/
+" https://github.com/vim/vim/issues/5157
+xnoremap "+y y:call system("wl-copy", @")<cr>
+nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
