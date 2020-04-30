@@ -9,7 +9,8 @@ Plug 'fenetikm/falcon'                              " more color
 Plug 'itchyny/lightline.vim'                        " status bar
 Plug 'mileszs/ack.vim'                              " search
 Plug 'maxbrunsfeld/vim-yankstack'                   " copy-paste ring
-Plug 'dense-analysis/ale'                           " linters
+"Plug 'dense-analysis/ale'                           " linters
+Plug '~/src/github.com/mna/ale'                     " local fork of ale
 Plug 'chrisbra/unicode.vim'                         " unicode characters
 " Install fzf as binary-only, no bindings
 Plug 'junegunn/fzf', { 'dir': '~/src/github.com/junegunn/fzf', 'do': './install --bin --64' }
