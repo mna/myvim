@@ -18,6 +18,7 @@ Plug 'sgur/vim-editorconfig'                	      " editor space/tab config
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}            " distraction-free writing
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'} " vim alignment, supports markdown tables
 Plug 'vim-scripts/vim-hackernews', {'on': 'HackerNews'}  " HackerNews
+Plug 'arrufat/vala.vim', {'for': 'vala'}
 call plug#end()
 
 " ###############################################
